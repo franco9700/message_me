@@ -8,3 +8,5 @@ production:
   adapter: redis
   url: <%= ENV.fetch("REDIS_URL") { "redis://localhost:6379/1" } %>
   channel_prefix: message_me_production
+  url: redis://redistogo:3cbdf5c1dcd0ff8c859566483bea3dc9@pike.redistogo.com:10241/
+
