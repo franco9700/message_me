@@ -7,35 +7,39 @@
   Log in to continue
 </h2>
 
-<div class="ui placeholder segment">
-  <div class="ui two column very relaxed stackable grid">
-    <div class="column">
-      <div class="ui form">
-        <div class="field">
-          <label>Username</label>
-          <div class="ui left icon input">
-            <input type="text" placeholder="Username">
-            <i class="user icon"></i>
+<%= form_for(:session, :html=>{role: "form"}, url: login_path) do |f| %>
+  <div class="ui placeholder segment">
+    <div class="ui two column very relaxed stackable grid">
+      <div class="column">
+        <div class="ui form">
+          <div class="field">
+            <%= f.label :username %>
+            <div class="ui left icon input">
+              <%= f.text_field :username, class: "", placeholder: "Username"%>
+              <i class="user icon"></i>
+            </div>
           </div>
-        </div>
-        <div class="field">
-          <label>Password</label>
-          <div class="ui left icon input">
-            <input type="password">
-            <i class="lock icon"></i>
+          <div class="field">
+            <%= f.label :password %>
+            <div class="ui left icon input">
+              <%= f.password_field :password, class: "", autocomplete: "off"%>
+              <i class="lock icon"></i>
+            </div>
           </div>
+          
+          <%= f.submit "Log in", class: "ui fluid orange submit button"%>
+          
         </div>
-        <div class="ui orange submit button">Login</div>
+      </div>
+      <div class="middle aligned column">
+        <div class="ui disabled orange big button">
+          <i class="signup icon"></i>
+        </div>
       </div>
     </div>
-    <div class="middle aligned column">
-      <div class="ui disabled orange big button">
-        <i class="signup icon"></i>
-        Sign Up
-      </div>
+    <div class="ui vertical divider">
+      Or
     </div>
   </div>
-  <div class="ui vertical divider">
-    Or
-  </div>
-</div>
+<% end %>
+
