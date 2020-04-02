@@ -1,8 +1,10 @@
 <div class="ui inverted small menu">
   <div class="ui container">
-    <a class="item">
-      Chatroom
-    </a>
+    <h2 class="ui small header item">
+      <i class="circular orange inverted envelope icon"></i>
+      <%= link_to "MessageMe", root_path%>
+    </h2>
+    <%= link_to "Chatoom", root_path, class: "item"%>
     <a class="item">
       Messages
     </a>
@@ -11,7 +13,7 @@
         Account <i class="dropdown icon"></i>
         <div class="menu">
           <a class="item">Log out</a>
-          <a class="item">Log in</a>
+          <%= link_to "Log in", login_path, class: "item"%>
           <a class="item">Sign up</a>
         </div>
       </div>
