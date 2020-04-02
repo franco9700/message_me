@@ -4,13 +4,18 @@
 
 <h2 class="ui center aligned medium icon header">
   <i class="circular orange inverted user outline icon"></i>
-  Log in to continue
+  Sign up now!
 </h2>
 
-<%= form_for(:session, :html=>{role: "form"}, url: login_path) do |f| %>
+<%= render 'shared/errors', obj: @user %>
+
+<%= form_with(model: @user, local: true) do |f| %>
   <div class="ui placeholder segment">
     <div class="ui two column very relaxed stackable grid">
-      <div class="column">
+      <div class="middle aligned column">
+        <%= link_to "Log in", root_path, class: "ui orange big button"%>
+      </div>
+      <div class="middle aligned column">
         <div class="ui form">
           <div class="field">
             <%= f.label :username %>
@@ -27,12 +32,9 @@
             </div>
           </div>
           
-          <%= f.submit "Log in", class: "ui fluid orange submit button"%>
+          <%= f.submit "Sign up", class: "ui fluid orange submit button"%>
           
         </div>
-      </div>
-      <div class="middle aligned column">
-          <%= link_to "Sign up", signup_path, class: "ui orange big button" %>
       </div>
     </div>
     <div class="ui vertical divider">
@@ -40,4 +42,3 @@
     </div>
   </div>
 <% end %>
-

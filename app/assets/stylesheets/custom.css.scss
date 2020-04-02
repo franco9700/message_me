@@ -3,3 +3,19 @@
 .chatbox{
 	height: 400px
 }
+
+#messages{
+	height: 15em;
+	overflow: auto;
+
+}
+
+.input {
+	button {
+	display: none;
+	}
+}
+
+.white-link{
+	color: white;
+}

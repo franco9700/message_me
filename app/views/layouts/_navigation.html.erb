@@ -2,12 +2,13 @@
   <div class="ui container">
     <h2 class="ui small header item">
       <i class="circular orange inverted envelope icon"></i>
-      <%= link_to "MessageMe", root_path%>
+      <% if logged_in? %>
+        <%= link_to "MessageMe", chatroom_path%>
+      <% else %>
+        <%= link_to "MessageMe", root_path%>
+      <% end %>
     </h2>
-    <%= link_to "Chatoom", root_path, class: "item"%>
-    <a class="item">
-      Messages
-    </a>
+    <%= link_to "Chatroom", chatroom_path, class: "item"%>
     <div class="right menu">
       <div class="ui dropdown item">
         Account <i class="dropdown icon"></i>
@@ -15,15 +16,19 @@
           <% if logged_in? %>
             <%= link_to "Log out", logout_path, method: :delete, class: "item" %>
           <% else %>
-            <%= link_to "Log in", login_path, class: "item"%>
-            <a class="item">Sign up</a>
+            <%= link_to "Log in", root_path, class: "item"%>
+            <%= link_to "Sign up", signup_path, class: "item"%>
           <% end %>
         </div>
       </div>
 
       <% if !logged_in? %>
         <div class="item">
-            <div class="ui primary button">Sign Up</div>
+            <%= link_to "Sign up", signup_path, class: "ui primary button"%>
+        </div>
+      <% else %>
+        <div class="item">
+          <%= current_user.username %>
         </div>
       <% end %>
     </div>
